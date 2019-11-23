@@ -98,8 +98,7 @@ const Meta = (props: HeaderProps): JSX.Element => (
       }
       code {
         font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono,
-          DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace,
-          sans-serif;
+          DejaVu Sans Mono, Courier New, monospace, sans-serif;
         font-size: 0.8rem;
         padding: 2px 5px;
         background-color: #eff0f1;
@@ -119,6 +118,12 @@ const Meta = (props: HeaderProps): JSX.Element => (
       .wrapper {
         max-width: 590px;
         margin: 0 auto;
+      }
+      .flex {
+        display: flex;
+      }
+      .col {
+        flex: 1;
       }
     `}</style>
   </>
