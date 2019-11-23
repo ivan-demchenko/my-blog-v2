@@ -78,7 +78,10 @@ const Meta = (props: HeaderProps): JSX.Element => (
         margin-bottom: 0rem;
       }
 
-      /* Let's make sure all's aligned */
+      li p:last-child {
+        margin-bottom: 0;
+      }
+
       hr,
       .hr {
         border: 1px solid;
