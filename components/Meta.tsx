@@ -108,6 +108,10 @@ const Meta = (props: HeaderProps): JSX.Element => (
       sub {
         bottom: -0.25em;
       }
+      .wrapper {
+        max-width: 590px;
+        margin: 0 auto;
+      }
     `}</style>
   </>
 )

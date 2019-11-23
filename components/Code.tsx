@@ -52,6 +52,7 @@ const Code: React.FC<CodeProps> = ({ fields }) => (
 
       .code-snippet__content {
         padding: 3px;
+        overflow: auto;
       }
     `}</style>
   </>

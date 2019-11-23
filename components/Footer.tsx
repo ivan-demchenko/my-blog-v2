@@ -2,7 +2,9 @@ import React from 'react'
 
 const Footer = (): JSX.Element => (
   <>
-    <footer>Copyright (c) 2019. All rights reserved;</footer>
+    <footer>
+      <div className='wrapper'>Copyright (c) 2019. All rights reserved;</div>
+    </footer>
 
     <style jsx>{`
       footer {

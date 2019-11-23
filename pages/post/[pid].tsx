@@ -41,13 +41,15 @@ const Post: NextComponentType<PostPageContext, PageProps, PageProps> = ({
 
       <Header title={post.fields.title} />
 
-      <article>{documentToReactComponents(post.fields.body, options)}</article>
+      <article className='wrapper'>
+        {documentToReactComponents(post.fields.body, options)}
+      </article>
 
       <Footer />
 
       <style jsx>{`
         article {
-          padding: 0 1rem;
+          padding: 1rem;
         }
       `}</style>
     </>

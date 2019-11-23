@@ -40,7 +40,7 @@ const Home: NextComponentType<BlogContext, HomeProps, HomeProps> = ({
     <Header title={`Ivan Demchenko's blog`} />
 
     <main>
-      <section className='posts'>{posts.map(renderPost)}</section>
+      <section className='wrapper'>{posts.map(renderPost)}</section>
     </main>
 
     <Footer />
