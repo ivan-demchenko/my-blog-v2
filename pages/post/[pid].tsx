@@ -28,7 +28,9 @@ type PostPageContext = BlogContext & {
   }
 }
 
-const Post: NextComponentType<PostPageContext, any, PageProps> = ({ post }) => {
+const Post: NextComponentType<PostPageContext, PageProps, PageProps> = ({
+  post,
+}) => {
   return (
     <>
       <Meta

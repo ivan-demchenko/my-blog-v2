@@ -23,11 +23,13 @@ const renderPost = (post: Entry<Post>): JSX.Element => (
   </div>
 )
 
-type IndexProps = {
+type HomeProps = {
   posts: Entry<Post>[]
 }
 
-const Home: NextComponentType<BlogContext, any, IndexProps> = ({ posts }) => (
+const Home: NextComponentType<BlogContext, HomeProps, HomeProps> = ({
+  posts,
+}) => (
   <>
     <Meta
       pageTitle={`Ivan Demchenko's blog`}
@@ -58,7 +60,7 @@ const Home: NextComponentType<BlogContext, any, IndexProps> = ({ posts }) => (
   </>
 )
 
-Home.getInitialProps = async (ctx): Promise<IndexProps> => {
+Home.getInitialProps = async (ctx): Promise<HomeProps> => {
   const { contentfulClient } = ctx
   const posts = await contentfulClient.getEntries<Post>({
     content_type: 'blogPost',
