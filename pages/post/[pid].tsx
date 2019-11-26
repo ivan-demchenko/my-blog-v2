@@ -6,7 +6,7 @@ import { NextComponentType } from 'next'
 import { BlogContext } from '../../lib/ContentfulClient'
 import { Post as PostContent } from '../../types/contentful'
 import Meta from '../../components/Meta'
-import Header from '../../components/Header'
+import PostHeader from '../../components/PostHeader'
 import Footer from '../../components/Footer'
 import Code from '../../components/Code'
 
@@ -39,7 +39,7 @@ const Post: NextComponentType<PostPageContext, PageProps, PageProps> = ({
         pageDescription={post.fields.description}
       />
 
-      <Header title={post.fields.title} />
+      <PostHeader title={post.fields.title} />
 
       <article className='wrapper'>
         {documentToReactComponents(post.fields.body, options)}

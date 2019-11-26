@@ -31,6 +31,17 @@ const Meta = (props: HeaderProps): JSX.Element => (
         line-height: 1.625rem;
       }
 
+      html,
+      body {
+        height: 100%;
+      }
+
+      #__next {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+
       h1 {
         font-size: 2.4375rem;
         line-height: 3.125rem;
