@@ -13,3 +13,8 @@ export type CodeSnippet = {
   slug: string
   code: Document
 }
+
+export type AboutPageUpdate = {
+  summary: string
+  text: Document
+}

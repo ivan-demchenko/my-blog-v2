@@ -2,8 +2,20 @@ import React from 'react'
 import Meta from '../components/Meta'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
+import { BlogContext } from '../lib/ContentfulClient'
+import { EntryCollection } from 'contentful'
+import { AboutPageUpdate } from '../types/contentful'
+import { NextComponentType } from 'next'
+import WhenPosted from '../components/WhenPosted'
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 
-const Page = (): JSX.Element => (
+type AboutPageProps = {
+  updates: EntryCollection<AboutPageUpdate>
+}
+
+const Page: NextComponentType<BlogContext, AboutPageProps, AboutPageProps> = ({
+  updates,
+}) => (
   <>
     <Meta
       pageTitle={`About me`}
@@ -14,29 +26,16 @@ const Page = (): JSX.Element => (
 
     <main>
       <section className='wrapper'>
-        <p>
-          Hi, I am Ivan. I was born in the South of Ukraine. I got my first
-          computer when I was at 10th grade (children in Ukraine go to school
-          for 12 years). That was a really nice PC: Celeron 700 MHz, 128 MB RAM,
-          15 GB HDD, nVidia Vanta Video card and awesome 15” Sony monitor. I was
-          a really cool kid with that set up. At that time, the most comfortable
-          resolution was 1024x768 because monitor could keep 72 Hz refresh rate.
-          I could set higher resolution but then refresh rate would drop
-          dramatically. Also, I think I still remember how to reinstall Windows
-          98 using floppy disk. Oh, good old days...
-        </p>
-        <p>
-          After the first two weeks of playing Quake III Area non-stop, I
-          finally got my access to the Internet. Yes via modem and land line.
-          The next question appeared “how is this web-page made”? I started
-          searching how to build a web-page. It was a great time! One discovery
-          after another. Later, I decided that I need a good text editor. This
-          is how I started with Delphi. Actually, I built a decent text editor
-          with syntax highlight, tabs, live preview and configurable set of
-          functions (something like macros, but simpler). However, I had to
-          start my preparations for final exams and I stopped working on that
-          editor.
-        </p>
+        {updates.items.map(data => {
+          return (
+            <div key={data.sys.id} className='update'>
+              <strong>{data.fields.summary}</strong>
+              <br />
+              <WhenPosted dateTime={data.sys.createdAt} />
+              <p>{documentToReactComponents(data.fields.text)}</p>
+            </div>
+          )
+        })}
       </section>
     </main>
 
@@ -47,8 +46,20 @@ const Page = (): JSX.Element => (
         padding: 0 1rem;
         flex: 1;
       }
+      .update {
+        margin-bottom: 3rem;
+      }
     `}</style>
   </>
 )
+
+Page.getInitialProps = async (ctx): Promise<AboutPageProps> => {
+  const { contentfulClient } = ctx
+  const updates = await contentfulClient.getEntries<AboutPageUpdate>({
+    content_type: 'aboutPageUpdate',
+    select: 'sys.createdAt,sys.id,fields.summary,fields.text',
+  })
+  return { updates }
+}
 
 export default Page

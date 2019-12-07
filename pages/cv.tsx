@@ -11,7 +11,7 @@ const Page = (): JSX.Element => (
       pageDescription='My resume'
     />
 
-    <Header title={`Ivan Demchenko's resumé`} />
+    <Header title={`Resumé`} />
 
     <main>
       <section className='wrapper'>
