@@ -6,15 +6,18 @@ export type HeaderProps = {
 
 const Header: React.FC<HeaderProps> = ({ title }) => (
   <>
-    <header>
+    <header className='header'>
       <div className='wrapper'>
-        <h1 className='title'>{title}</h1>
+        <span className='header__title'>{title}</span>
       </div>
     </header>
     <style jsx>{`
-      header {
-        padding: 2rem 1rem;
-        background-color: #fafafa;
+      .header {
+        padding: 4rem 1rem;
+      }
+      .header__title {
+        font-size: 2.4375rem;
+        line-height: 3.125rem;
       }
     `}</style>
   </>

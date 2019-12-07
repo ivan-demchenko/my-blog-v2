@@ -4,7 +4,6 @@ export default (
   <style jsx global>{`
     html {
       font-size: 16px;
-      line-height: 26px;
       font-family: sans-serif;
     }
 
@@ -17,14 +16,14 @@ export default (
     }
 
     html,
-    body {
+    body,
+    #__next {
       height: 100%;
     }
 
     #__next {
       display: flex;
       flex-direction: column;
-      height: 100%;
     }
 
     h1 {

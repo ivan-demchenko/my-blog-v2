@@ -39,7 +39,7 @@ const Post: NextComponentType<PostPageContext, PageProps, PageProps> = ({
         pageDescription={post.fields.description}
       />
 
-      <PostHeader title={post.fields.title} />
+      <PostHeader title={post.fields.title} date={post.sys.createdAt} />
 
       <article className='wrapper'>
         {documentToReactComponents(post.fields.body, options)}
