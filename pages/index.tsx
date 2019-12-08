@@ -10,7 +10,7 @@ import Footer from '../components/Footer';
 import WhenPosted from '../components/WhenPosted';
 
 const renderPost = (post: Entry<Post>): JSX.Element => (
-  <>
+  <div className='post' key={post.sys.id}>
     <h3>
       <Link
         href={`/post/${post.fields.slug}-${post.sys.id}`}
@@ -20,7 +20,12 @@ const renderPost = (post: Entry<Post>): JSX.Element => (
       </Link>
     </h3>
     <WhenPosted dateTime={post.sys.createdAt} />
-  </>
+    <style jsx>{`
+      .post {
+        padding-bottom: 3.25rem;
+      }
+    `}</style>
+  </div>
 );
 
 type HomeProps = {
@@ -53,9 +58,6 @@ const Home: NextComponentType<BlogContext, HomeProps, HomeProps> = ({
       .title {
         line-height: 1.15;
         font-size: 1.5rem;
-      }
-      .post {
-        border-bottom: solid 1px #ccc;
       }
     `}</style>
   </>

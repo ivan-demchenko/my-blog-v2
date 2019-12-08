@@ -2,6 +2,10 @@ import React from 'react';
 
 export default (
   <style jsx global>{`
+    * {
+      box-sizing: border-box;
+    }
+
     html {
       font-size: 16px;
       font-family: sans-serif;
@@ -116,9 +120,24 @@ export default (
     }
     .flex {
       display: flex;
+      flex-direction: column;
     }
     .col {
       flex: 1;
+      padding-bottom: 1.625rem;
+    }
+    .col:last-child {
+      padding-bottom: 0;
+    }
+    @media (min-width: 32rem) {
+      .flex {
+        display: flex;
+        flex-direction: row;
+      }
+      .col {
+        flex: 1;
+        padding-bottom: 0;
+      }
     }
   `}</style>
 );
