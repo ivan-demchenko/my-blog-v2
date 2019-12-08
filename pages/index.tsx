@@ -4,10 +4,9 @@ import { NextComponentType } from 'next';
 import { BlogContext } from '../lib/ContentfulClient';
 import { Post } from '../types/contentful';
 import { Entry } from 'contentful';
-import Meta from '../components/Meta';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+import Layout from '../components/Layout';
 import WhenPosted from '../components/WhenPosted';
+import Header from '../components/Header';
 
 const renderPost = (post: Entry<Post>): JSX.Element => (
   <div className='post' key={post.sys.id}>
@@ -34,34 +33,30 @@ type HomeProps = {
 
 const Home: NextComponentType<BlogContext, HomeProps, HomeProps> = ({
   posts,
-}) => (
-  <>
-    <Meta
+}) => {
+  return (
+    <Layout
       pageTitle={`Ivan Demchenko's blog`}
       pageKeywords='Ivan Demchenko, blog, notes, front-end, react, functional programming, elm'
       pageDescription='This is a personal blog of Ivan Demchenko'
-    />
-
-    <Header title={`Ivan Demchenko's blog`} />
-
-    <main>
-      <section className='wrapper'>{posts.map(renderPost)}</section>
-    </main>
-
-    <Footer />
-
-    <style jsx>{`
-      main {
-        padding: 0 1rem;
-        flex: 1;
-      }
-      .title {
-        line-height: 1.15;
-        font-size: 1.5rem;
-      }
-    `}</style>
-  </>
-);
+      header={<Header headerStyle='clearSky' title={`Ivan Demchenko's blog`} />}
+    >
+      <main>
+        <section className='wrapper'>{posts.map(renderPost)}</section>
+      </main>
+      <style jsx>{`
+        main {
+          padding: 0 1rem;
+          flex: 1;
+        }
+        .title {
+          line-height: 1.15;
+          font-size: 1.5rem;
+        }
+      `}</style>
+    </Layout>
+  );
+};
 
 Home.getInitialProps = async (ctx): Promise<HomeProps> => {
   const { contentfulClient } = ctx;

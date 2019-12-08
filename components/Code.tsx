@@ -1,9 +1,4 @@
 import React from 'react';
-import {
-  documentToReactComponents,
-  Options,
-} from '@contentful/rich-text-react-renderer';
-import { BLOCKS } from '@contentful/rich-text-types';
 
 export type CodeProps = {
   fields: {
@@ -37,8 +32,7 @@ const Code: React.FC<CodeProps> = ({ fields }) => (
 
       .code-snippet__content {
         font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono,
-          DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace,
-          sans-serif;
+          DejaVu Sans Mono, Courier New, monospace, sans-serif;
         overflow: auto;
         font-size: 0.8rem;
         line-height: 1.3;

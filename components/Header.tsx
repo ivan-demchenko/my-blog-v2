@@ -1,10 +1,12 @@
 import React from 'react';
+import { AvailableGradients, variants } from './CSSGradients';
 
 export type HeaderProps = {
   title: string;
+  headerStyle: AvailableGradients;
 };
 
-const Header: React.FC<HeaderProps> = ({ title }) => (
+const Header: React.FC<HeaderProps> = ({ title, headerStyle }) => (
   <>
     <header className='header'>
       <div className='wrapper'>
@@ -14,6 +16,7 @@ const Header: React.FC<HeaderProps> = ({ title }) => (
     <style jsx>{`
       .header {
         padding: 4rem 1rem;
+        ${variants[headerStyle]}
       }
       .header__title {
         font-size: 2.4375rem;

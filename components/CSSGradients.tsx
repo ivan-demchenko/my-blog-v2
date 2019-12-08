@@ -25,9 +25,4 @@ export const variants = {
   `,
 };
 
-export const pickRandomGradient = (): string => {
-  const vars = Object.keys(variants);
-  const random = Math.round(Math.random() * (vars.length - 1));
-  console.log(variants[vars[random]]);
-  return variants[vars[random]];
-};
+export type AvailableGradients = keyof typeof variants;

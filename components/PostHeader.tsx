@@ -1,12 +1,14 @@
 import React from 'react';
 import WhenPosted from '../components/WhenPosted';
+import { AvailableGradients, variants } from './CSSGradients';
 
 export type HeaderProps = {
   title: string;
   date: string;
+  headerStyle: AvailableGradients;
 };
 
-const PostHeader: React.FC<HeaderProps> = ({ title, date }) => (
+const PostHeader: React.FC<HeaderProps> = ({ title, date, headerStyle }) => (
   <>
     <header>
       <div className='wrapper'>
@@ -23,6 +25,7 @@ const PostHeader: React.FC<HeaderProps> = ({ title, date }) => (
         box-sizing: border-box;
         display: flex;
         align-items: center;
+        ${variants[headerStyle]}
       }
 
       .title {
