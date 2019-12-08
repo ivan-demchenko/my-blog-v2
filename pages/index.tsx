@@ -7,34 +7,28 @@ import { Entry } from 'contentful';
 import Layout from '../components/Layout';
 import WhenPosted from '../components/WhenPosted';
 import Header from '../components/Header';
-import ContentfulClient from '../lib/ContentfulClient';
+import BlogPosts from '../data/blogPost.json';
 
-const renderPost = (post: Entry<Post>): JSX.Element => (
-  <div className='post' key={post.sys.id}>
-    <h3>
-      <Link
-        href={`/post/${post.fields.slug}-${post.sys.id}`}
-        key={`post-${post.sys.id}`}
-      >
-        <a>{post.fields.title}</a>
-      </Link>
-    </h3>
-    <WhenPosted dateTime={post.sys.createdAt} />
-    <style jsx>{`
-      .post {
-        padding-bottom: 3.25rem;
-      }
-    `}</style>
-  </div>
-);
-
-type HomeProps = {
-  posts: Entry<Post>[];
+const renderPost = (data: any): JSX.Element => {
+  const post = data as Entry<Post>;
+  return (
+    <div className='post' key={post.sys.id}>
+      <h3>
+        <Link href={`/post/${post.fields.slug}`} key={`post-${post.sys.id}`}>
+          <a>{post.fields.title}</a>
+        </Link>
+      </h3>
+      <WhenPosted dateTime={post.sys.createdAt} />
+      <style jsx>{`
+        .post {
+          padding-bottom: 3.25rem;
+        }
+      `}</style>
+    </div>
+  );
 };
 
-const Home: NextComponentType<BlogContext, HomeProps, HomeProps> = ({
-  posts,
-}) => {
+const Home: NextComponentType<BlogContext, any, any> = () => {
   return (
     <Layout
       pageTitle={`Ivan Demchenko's blog`}
@@ -43,7 +37,7 @@ const Home: NextComponentType<BlogContext, HomeProps, HomeProps> = ({
       header={<Header headerStyle='clearSky' title={`Ivan Demchenko's blog`} />}
     >
       <main>
-        <section className='wrapper'>{posts.map(renderPost)}</section>
+        <section className='wrapper'>{BlogPosts.items.map(renderPost)}</section>
       </main>
       <style jsx>{`
         main {
@@ -57,14 +51,6 @@ const Home: NextComponentType<BlogContext, HomeProps, HomeProps> = ({
       `}</style>
     </Layout>
   );
-};
-
-Home.getInitialProps = async (): Promise<HomeProps> => {
-  const posts = await ContentfulClient.getEntries<Post>({
-    content_type: 'blogPost',
-    select: 'sys.createdAt,sys.id,fields.title,fields.slug',
-  });
-  return { posts: posts.items };
 };
 
 export default Home;

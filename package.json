@@ -4,12 +4,15 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
     "start": "next start",
+    "build": "NODE_ENV=production next build",
+    "export": "npm run build && next export",
     "lint:check": "eslint '{components,lib,pages,types}/**/*.{ts,tsx}'",
     "lint:fix": "eslint --fix '{components,lib,pages,types}/**/*.{ts,tsx}'",
     "style:check": "prettier --check '{components,lib,pages,types}/**/*.{ts,tsx}'",
-    "style:fix": "prettier --write '{components,lib,pages,types}/**/*.{ts,tsx}'"
+    "style:fix": "prettier --write '{components,lib,pages,types}/**/*.{ts,tsx}'",
+    "fetchContent": "node lib/fetchContent.js",
+    "postinstall": "npm run fetchContent"
   },
   "husky": {
     "hooks": {
@@ -46,6 +49,7 @@
     "@typescript-eslint/parser": "^2.8.0",
     "commitizen": "^4.0.3",
     "cz-conventional-changelog": "3.0.2",
+    "dotenv": "^8.2.0",
     "eslint": "^6.6.0",
     "eslint-config-prettier": "^6.7.0",
     "eslint-plugin-prettier": "^3.1.1",
@@ -53,6 +57,7 @@
     "husky": "^3.1.0",
     "lint-staged": "^9.4.3",
     "prettier": "^1.19.1",
+    "ts-node": "^8.5.4",
     "typescript": "^3.7.2"
   },
   "config": {

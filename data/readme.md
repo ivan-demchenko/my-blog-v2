@@ -1,0 +1,1 @@
+`postinstall` script will fetch the data from contentful here

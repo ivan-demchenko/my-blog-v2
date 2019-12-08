@@ -60,11 +60,12 @@ const Post: NextComponentType<PostPageContext, PageProps, PageProps> = ({
 };
 
 Post.getInitialProps = async (ctx): Promise<PageProps> => {
-  const { query } = ctx;
-  const id = query.pid.split('-').pop();
-  const data = await ContentfulClient.getEntry<PostContent>(id);
+  const data = await ContentfulClient.getEntries<PostContent>({
+    content_type: 'blogPost',
+    'fields.slug[in]': ctx.query.pid,
+  });
   return {
-    post: data,
+    post: data.items[0],
   };
 };
 
