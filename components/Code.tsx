@@ -1,16 +1,16 @@
-import React from 'react'
+import React from 'react';
 import {
   documentToReactComponents,
   Options,
-} from '@contentful/rich-text-react-renderer'
-import { BLOCKS } from '@contentful/rich-text-types'
+} from '@contentful/rich-text-react-renderer';
+import { BLOCKS } from '@contentful/rich-text-types';
 
 export type CodeProps = {
   fields: {
-    title: string
-    code: any
-  }
-}
+    title: string;
+    code: any;
+  };
+};
 
 const Code: React.FC<CodeProps> = ({ fields }) => (
   <>
@@ -47,6 +47,6 @@ const Code: React.FC<CodeProps> = ({ fields }) => (
       }
     `}</style>
   </>
-)
+);
 
-export default Code
+export default Code;

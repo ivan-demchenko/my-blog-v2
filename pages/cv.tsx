@@ -1,7 +1,7 @@
-import React from 'react'
-import Meta from '../components/Meta'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
+import React from 'react';
+import Meta from '../components/Meta';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 const Page = (): JSX.Element => (
   <>
@@ -29,6 +29,6 @@ const Page = (): JSX.Element => (
       }
     `}</style>
   </>
-)
+);
 
-export default Page
+export default Page;

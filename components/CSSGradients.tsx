@@ -23,11 +23,11 @@ export const variants = {
     background: linear-gradient(to right, #C06C84, #6C5B7B, #355C7D);
     color: #FFF;
   `,
-}
+};
 
 export const pickRandomGradient = (): string => {
-  const vars = Object.keys(variants)
-  const random = Math.round(Math.random() * (vars.length - 1))
-  console.log(variants[vars[random]])
-  return variants[vars[random]]
-}
+  const vars = Object.keys(variants);
+  const random = Math.round(Math.random() * (vars.length - 1));
+  console.log(variants[vars[random]]);
+  return variants[vars[random]];
+};

@@ -1,14 +1,14 @@
-import React from 'react'
-import formatDistanceToNow from 'date-fns/formatDistanceToNow'
+import React from 'react';
+import formatDistanceToNow from 'date-fns/formatDistanceToNow';
 
 const formatDate = (date: string): string =>
   formatDistanceToNow(Date.parse(date), {
     addSuffix: true,
-  })
+  });
 
 type WhenPostedProps = {
-  dateTime: string
-}
+  dateTime: string;
+};
 
 const WhenPosted: React.FC<WhenPostedProps> = ({ dateTime }) => (
   <>
@@ -20,6 +20,6 @@ const WhenPosted: React.FC<WhenPostedProps> = ({ dateTime }) => (
       }
     `}</style>
   </>
-)
+);
 
-export default WhenPosted
+export default WhenPosted;

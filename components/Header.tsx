@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
 
 export type HeaderProps = {
-  title: string
-}
+  title: string;
+};
 
 const Header: React.FC<HeaderProps> = ({ title }) => (
   <>
@@ -21,6 +21,6 @@ const Header: React.FC<HeaderProps> = ({ title }) => (
       }
     `}</style>
   </>
-)
+);
 
-export default Header
+export default Header;

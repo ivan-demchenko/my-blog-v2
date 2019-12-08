@@ -1,8 +1,8 @@
-import config from '../config'
-import { createClient, ContentfulClientApi } from 'contentful'
+import config from '../config';
+import { createClient, ContentfulClientApi } from 'contentful';
 
 export type BlogContext = {
-  contentfulClient: ContentfulClientApi
-}
+  contentfulClient: ContentfulClientApi;
+};
 
-export default createClient(config.contentful)
+export default createClient(config.contentful);

@@ -1,10 +1,10 @@
-import React from 'react'
-import WhenPosted from '../components/WhenPosted'
+import React from 'react';
+import WhenPosted from '../components/WhenPosted';
 
 export type HeaderProps = {
-  title: string
-  date: string
-}
+  title: string;
+  date: string;
+};
 
 const PostHeader: React.FC<HeaderProps> = ({ title, date }) => (
   <>
@@ -30,6 +30,6 @@ const PostHeader: React.FC<HeaderProps> = ({ title, date }) => (
       }
     `}</style>
   </>
-)
+);
 
-export default PostHeader
+export default PostHeader;

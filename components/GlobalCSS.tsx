@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 export default (
   <style jsx global>{`
@@ -121,4 +121,4 @@ export default (
       flex: 1;
     }
   `}</style>
-)
+);

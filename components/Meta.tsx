@@ -1,12 +1,12 @@
-import React from 'react'
-import Head from 'next/head'
-import GlobalCSS from './GlobalCSS'
+import React from 'react';
+import Head from 'next/head';
+import GlobalCSS from './GlobalCSS';
 
 export type HeaderProps = {
-  pageTitle: string
-  pageKeywords: string
-  pageDescription: string
-}
+  pageTitle: string;
+  pageKeywords: string;
+  pageDescription: string;
+};
 
 const Meta = (props: HeaderProps): JSX.Element => (
   <>
@@ -19,6 +19,6 @@ const Meta = (props: HeaderProps): JSX.Element => (
       {GlobalCSS}
     </Head>
   </>
-)
+);
 
-export default Meta
+export default Meta;

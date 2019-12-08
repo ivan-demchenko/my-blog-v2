@@ -1,13 +1,13 @@
-import React from 'react'
-import Link from 'next/link'
-import { NextComponentType } from 'next'
-import { BlogContext } from '../lib/ContentfulClient'
-import { Post } from '../types/contentful'
-import { Entry } from 'contentful'
-import Meta from '../components/Meta'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
-import WhenPosted from '../components/WhenPosted'
+import React from 'react';
+import Link from 'next/link';
+import { NextComponentType } from 'next';
+import { BlogContext } from '../lib/ContentfulClient';
+import { Post } from '../types/contentful';
+import { Entry } from 'contentful';
+import Meta from '../components/Meta';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import WhenPosted from '../components/WhenPosted';
 
 const renderPost = (post: Entry<Post>): JSX.Element => (
   <>
@@ -21,11 +21,11 @@ const renderPost = (post: Entry<Post>): JSX.Element => (
     </h3>
     <WhenPosted dateTime={post.sys.createdAt} />
   </>
-)
+);
 
 type HomeProps = {
-  posts: Entry<Post>[]
-}
+  posts: Entry<Post>[];
+};
 
 const Home: NextComponentType<BlogContext, HomeProps, HomeProps> = ({
   posts,
@@ -59,15 +59,15 @@ const Home: NextComponentType<BlogContext, HomeProps, HomeProps> = ({
       }
     `}</style>
   </>
-)
+);
 
 Home.getInitialProps = async (ctx): Promise<HomeProps> => {
-  const { contentfulClient } = ctx
+  const { contentfulClient } = ctx;
   const posts = await contentfulClient.getEntries<Post>({
     content_type: 'blogPost',
     select: 'sys.createdAt,sys.id,fields.title,fields.slug',
-  })
-  return { posts: posts.items }
-}
+  });
+  return { posts: posts.items };
+};
 
-export default Home
+export default Home;

@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const Footer = (): JSX.Element => (
   <>
@@ -33,6 +33,6 @@ const Footer = (): JSX.Element => (
       }
     `}</style>
   </>
-)
+);
 
-export default Footer
+export default Footer;

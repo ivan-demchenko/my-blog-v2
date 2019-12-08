@@ -1,26 +1,26 @@
-import React from 'react'
-import App from 'next/app'
-import ContentfulClient from '../lib/ContentfulClient'
+import React from 'react';
+import App from 'next/app';
+import ContentfulClient from '../lib/ContentfulClient';
 
 export type PageProps = {
-  pageProps: any
-}
+  pageProps: any;
+};
 
 export default class BlogApp extends App {
   static async getInitialProps({ Component, ctx }): Promise<PageProps> {
-    let pageProps = {}
+    let pageProps = {};
 
-    ctx.contentfulClient = ContentfulClient
+    ctx.contentfulClient = ContentfulClient;
 
     if (Component.getInitialProps) {
-      pageProps = await Component.getInitialProps(ctx)
+      pageProps = await Component.getInitialProps(ctx);
     }
 
-    return { pageProps }
+    return { pageProps };
   }
 
   render(): JSX.Element {
-    const { Component, pageProps } = this.props
-    return <Component {...pageProps} />
+    const { Component, pageProps } = this.props;
+    return <Component {...pageProps} />;
   }
 }

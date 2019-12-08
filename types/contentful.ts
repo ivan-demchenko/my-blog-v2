@@ -1,20 +1,20 @@
-import { Document } from '@contentful/rich-text-types'
+import { Document } from '@contentful/rich-text-types';
 
 export type Post = {
-  title: string
-  keywords: string
-  description: string
-  slug: string
-  body: Document
-}
+  title: string;
+  keywords: string;
+  description: string;
+  slug: string;
+  body: Document;
+};
 
 export type CodeSnippet = {
-  title: string
-  slug: string
-  code: Document
-}
+  title: string;
+  slug: string;
+  code: Document;
+};
 
 export type AboutPageUpdate = {
-  summary: string
-  text: Document
-}
+  summary: string;
+  text: Document;
+};
