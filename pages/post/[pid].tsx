@@ -8,6 +8,7 @@ import { Post as PostContent } from '../../types/contentful';
 import Layout from '../../components/Layout';
 import PostHeader from '../../components/PostHeader';
 import Code from '../../components/Code';
+import ContentfulClient from '../../lib/ContentfulClient';
 
 type PageProps = {
   post: Entry<PostContent>;
@@ -43,12 +44,14 @@ const Post: NextComponentType<PostPageContext, PageProps, PageProps> = ({
         />
       }
     >
-      <article className='wrapper'>
-        {documentToReactComponents(post.fields.body, options)}
-      </article>
+      <main>
+        <article className='wrapper'>
+          {documentToReactComponents(post.fields.body, options)}
+        </article>
+      </main>
 
       <style jsx>{`
-        article {
+        main {
           padding: 1rem;
         }
       `}</style>
@@ -57,9 +60,9 @@ const Post: NextComponentType<PostPageContext, PageProps, PageProps> = ({
 };
 
 Post.getInitialProps = async (ctx): Promise<PageProps> => {
-  const { contentfulClient, query } = ctx;
+  const { query } = ctx;
   const id = query.pid.split('-').pop();
-  const data = await contentfulClient.getEntry<PostContent>(id);
+  const data = await ContentfulClient.getEntry<PostContent>(id);
   return {
     post: data,
   };

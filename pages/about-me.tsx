@@ -1,5 +1,6 @@
 import React from 'react';
 import Layout from '../components/Layout';
+import ContentfulClient from '../lib/ContentfulClient';
 import { BlogContext } from '../lib/ContentfulClient';
 import { EntryCollection } from 'contentful';
 import { AboutPageUpdate } from '../types/contentful';
@@ -54,9 +55,8 @@ const Page: NextComponentType<BlogContext, AboutPageProps, AboutPageProps> = ({
   );
 };
 
-Page.getInitialProps = async (ctx): Promise<AboutPageProps> => {
-  const { contentfulClient } = ctx;
-  const updates = await contentfulClient.getEntries<AboutPageUpdate>({
+Page.getInitialProps = async (): Promise<AboutPageProps> => {
+  const updates = await ContentfulClient.getEntries<AboutPageUpdate>({
     content_type: 'aboutPageUpdate',
     select: 'sys.createdAt,sys.id,fields.summary,fields.text',
   });

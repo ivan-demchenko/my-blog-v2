@@ -1,6 +1,7 @@
 import React from 'react';
 import WhenPosted from '../components/WhenPosted';
 import { AvailableGradients, variants } from './CSSGradients';
+import Nav from './NavigationMenu';
 
 export type HeaderProps = {
   title: string;
@@ -12,6 +13,7 @@ const PostHeader: React.FC<HeaderProps> = ({ title, date, headerStyle }) => (
   <>
     <header>
       <div className='wrapper'>
+        <Nav leftAligned />
         <h1 className='title'>{title}</h1>
         <WhenPosted dateTime={date} />
       </div>
@@ -22,7 +24,7 @@ const PostHeader: React.FC<HeaderProps> = ({ title, date, headerStyle }) => (
         flex-basis: 100%;
         flex-grow: 1;
         min-height: 100%;
-        box-sizing: border-box;
+        margin-bottom: 2rem;
         display: flex;
         align-items: center;
         ${variants[headerStyle]}

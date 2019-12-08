@@ -7,6 +7,7 @@ import { Entry } from 'contentful';
 import Layout from '../components/Layout';
 import WhenPosted from '../components/WhenPosted';
 import Header from '../components/Header';
+import ContentfulClient from '../lib/ContentfulClient';
 
 const renderPost = (post: Entry<Post>): JSX.Element => (
   <div className='post' key={post.sys.id}>
@@ -58,9 +59,8 @@ const Home: NextComponentType<BlogContext, HomeProps, HomeProps> = ({
   );
 };
 
-Home.getInitialProps = async (ctx): Promise<HomeProps> => {
-  const { contentfulClient } = ctx;
-  const posts = await contentfulClient.getEntries<Post>({
+Home.getInitialProps = async (): Promise<HomeProps> => {
+  const posts = await ContentfulClient.getEntries<Post>({
     content_type: 'blogPost',
     select: 'sys.createdAt,sys.id,fields.title,fields.slug',
   });
