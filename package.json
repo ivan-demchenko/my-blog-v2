@@ -6,13 +6,12 @@
     "dev": "next dev",
     "start": "next start",
     "build": "NODE_ENV=production next build",
-    "export": "npm run build && next export",
+    "export": "npm run fetchContent && npm run build && next export",
     "lint:check": "eslint '{components,lib,pages,types}/**/*.{ts,tsx}'",
     "lint:fix": "eslint --fix '{components,lib,pages,types}/**/*.{ts,tsx}'",
     "style:check": "prettier --check '{components,lib,pages,types}/**/*.{ts,tsx}'",
     "style:fix": "prettier --write '{components,lib,pages,types}/**/*.{ts,tsx}'",
-    "fetchContent": "node lib/fetchContent.js",
-    "postinstall": "npm run fetchContent"
+    "fetchContent": "node lib/fetchContent.js"
   },
   "husky": {
     "hooks": {
