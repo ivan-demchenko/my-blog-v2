@@ -14,7 +14,11 @@ const renderPost = (data: any): JSX.Element => {
   return (
     <div className='post' key={post.sys.id}>
       <h3>
-        <Link href={`/post/${post.fields.slug}`} key={`post-${post.sys.id}`}>
+        <Link
+          href={`/post/[pid]`}
+          as={`/post/${post.fields.slug}`}
+          key={`post-${post.sys.id}`}
+        >
           <a>{post.fields.title}</a>
         </Link>
       </h3>
