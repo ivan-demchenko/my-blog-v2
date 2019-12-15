@@ -6,7 +6,6 @@ module.exports = {
     const paths = {
       '/': { page: '/' },
       '/about-me': { page: '/about-me' },
-      '/cv': { page: '/cv' },
     };
 
     // dynamic, data-generated pages

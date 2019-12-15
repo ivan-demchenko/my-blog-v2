@@ -14,9 +14,6 @@ const Nav: React.FC<NavProps> = ({ leftAligned }): JSX.Element => {
       <Link href='/about-me' key='link-about-me'>
         <a>About me</a>
       </Link>
-      <Link href='/cv' key='link-cv'>
-        <a>Resumé</a>
-      </Link>
       <style jsx>{`
         .nav {
           display: flex;
