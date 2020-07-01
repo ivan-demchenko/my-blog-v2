@@ -15,19 +15,20 @@ const Code: React.FC<CodeProps> = ({ fields }) => (
     </div>
     <style jsx>{`
       .code-snippet {
-        border: solid 1px #e0e0e0;
+        border: solid 1px #e5e5e5;
+        border-radius: 0.5rem;
       }
 
       .code-snippet__title {
         font-weight: bold;
         margin: 0;
-        padding: 6px 0 3px 9px;
-        border-bottom: solid 1px #e0e0e0;
-        background-color: #f0f0f0;
+        padding: 6px 9px;
+        background-color: #e5e5e5;
         font-size: 0.7rem;
         text-transform: uppercase;
         line-height: 1;
-        color: #777;
+        color: #656565;
+        border-radius: 0.5rem 0.5rem 0 0;
       }
 
       .code-snippet__content {

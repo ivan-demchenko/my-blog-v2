@@ -30,7 +30,7 @@ const Page: NextComponentType<BlogContext, AboutPageProps, AboutPageProps> = ({
             chronicle of updates. I am curious what am I going to write about
             myself during my lifetime.
           </p>
-          {updates.items.map(data => {
+          {updates.items.map((data) => {
             return (
               <div key={data.sys.id} className='update'>
                 <strong>{data.fields.summary}</strong>
