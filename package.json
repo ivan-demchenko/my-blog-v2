@@ -7,23 +7,12 @@
     "start": "next start",
     "build": "NODE_ENV=production next build",
     "export": "npm run fetchContent && npm run build && next export",
-    "lint:check": "eslint '{components,lib,pages,types}/**/*.{ts,tsx}'",
-    "lint:fix": "eslint --fix '{components,lib,pages,types}/**/*.{ts,tsx}'",
-    "style:check": "prettier --check '{components,lib,pages,types}/**/*.{ts,tsx}'",
-    "style:fix": "prettier --write '{components,lib,pages,types}/**/*.{ts,tsx}'",
     "fetchContent": "node lib/fetchContent.js"
   },
   "husky": {
     "hooks": {
-      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true",
-      "pre-commit": "lint-staged"
+      "pre-commit": "pretty-quick --staged"
     }
-  },
-  "lint-staged": {
-    "*.{ts,tsx}": [
-      "yarn lint:fix",
-      "git add"
-    ]
   },
   "prettier": {
     "printWidth": 80,
@@ -34,30 +23,25 @@
     "singleQuote": true
   },
   "dependencies": {
-    "@contentful/rich-text-react-renderer": "^13.4.0",
-    "contentful": "^7.10.0",
-    "date-fns": "^2.8.0",
-    "next": "9.1.4",
-    "react": "16.12.0",
-    "react-dom": "16.12.0"
+    "@contentful/rich-text-react-renderer": "^14.1.1",
+    "contentful": "^7.14.5",
+    "date-fns": "^2.14.0",
+    "next": "9.4.4",
+    "pretty-quick": "^2.0.1",
+    "react": "16.13.1",
+    "react-dom": "16.13.1"
   },
   "devDependencies": {
-    "@types/node": "^12.12.11",
-    "@types/react": "^16.9.11",
-    "@typescript-eslint/eslint-plugin": "^2.8.0",
-    "@typescript-eslint/parser": "^2.8.0",
-    "commitizen": "^4.0.3",
-    "cz-conventional-changelog": "3.0.2",
+    "@types/node": "^14.0.14",
+    "@types/react": "^16.9.41",
+    "commitizen": "^4.1.2",
+    "cz-conventional-changelog": "3.2.0",
     "dotenv": "^8.2.0",
-    "eslint": "^6.6.0",
-    "eslint-config-prettier": "^6.7.0",
-    "eslint-plugin-prettier": "^3.1.1",
-    "eslint-plugin-react": "^7.16.0",
-    "husky": "^3.1.0",
-    "lint-staged": "^9.4.3",
-    "prettier": "^1.19.1",
-    "ts-node": "^8.5.4",
-    "typescript": "^3.7.2"
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11",
+    "prettier": "^2.0.5",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.6"
   },
   "config": {
     "commitizen": {
